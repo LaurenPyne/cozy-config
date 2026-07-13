@@ -1,6 +1,9 @@
+{ ... }:
+
 {
   imports = [
     ./cli.nix
-    ./direnv.nix
+    ./git.nix
+    ./python.nix
   ];
 }

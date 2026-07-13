@@ -1,0 +1,16 @@
+Design Philosophy
+
+Every package should justify its existence.
+
+If you don't use it...
+
+...it doesn't belong.
+
+That has a few consequences:
+
+Smaller rebuilds
+Less maintenance
+Less cognitive overhead
+Better understanding of your own machine
+
+You're optimizing for clarity, not for having every tool under the sun.
