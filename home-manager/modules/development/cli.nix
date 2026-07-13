@@ -2,26 +2,28 @@
 
 {
   home.packages = with pkgs; [
-    # Task runner
     just
 
-    # Better core utilities
-    eza
-    bat
     fd
     ripgrep
-
-    # Useful utilities
     jq
     tree
-    unzip
+
     zip
+    unzip
+
     curl
     wget
 
-    # System monitoring
     btop
     dust
     duf
   ];
+
+  programs.bat.enable = true;
+
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 }
