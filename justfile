@@ -1,35 +1,31 @@
 default:
     @just --list
 
+status:
+    git status
+
 build:
+    git add .
     sudo nixos-rebuild build --flake .#Cozy
 
 switch:
+    git add .
     sudo nixos-rebuild switch --flake .#Cozy
-
-boot:
-    sudo nixos-rebuild boot --flake .#Cozy
-
-test:
-    sudo nixos-rebuild test --flake .#Cozy
 
 update:
     nix flake update
 
-check:
-    nix flake check
-
-clean:
-    nix store gc
-
 fmt:
     nix fmt
 
-status:
-    git status
+commit message:
+    git add .
+    git commit -m "{{message}}"
 
 push:
     git push
 
-log:
-    git log --oneline --graph --decorate --all
+sync:
+    git add .
+    git commit -m "Update configuration"
+    git push

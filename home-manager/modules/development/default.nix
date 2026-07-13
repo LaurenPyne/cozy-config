@@ -5,5 +5,6 @@
     ./cli.nix
     ./git.nix
     ./python.nix
+    ./vscode.nix
   ];
 }

@@ -75,3 +75,44 @@ Small setbacks like this become valuable learning opportunities when they are in
 - **Working tree** – The files currently checked out on disk.
 - **Index (staging area)** – The snapshot that will become the next commit.
 - **Repository root** – The directory containing `.git`.
+
+## Discovery: Flakes Evaluate the Git Snapshot
+
+While adding `vscode.nix`, the build failed with:
+
+```text
+Path 'home-manager/modules/development/vscode.nix' is not tracked by Git.
+```
+
+### Cause
+
+Nix Flakes evaluate the repository's Git snapshot rather than every file
+currently on disk.
+
+New files are invisible until they are staged with Git.
+
+### Resolution
+
+```bash
+git add home-manager/modules/development/vscode.nix
+```
+
+or simply:
+
+```bash
+git add .
+```
+
+before rebuilding.
+
+### Takeaway
+
+When working with Flakes:
+
+1. Create or modify files.
+2. Stage new files with `git add`.
+3. Build or switch.
+4. Commit only after verifying everything works.
+
+This keeps the build reproducible while allowing changes to be tested before
+they become part of Git history.
