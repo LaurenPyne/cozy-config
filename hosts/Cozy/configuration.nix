@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+  ../../modules/core
+  ./hardware-configuration.nix
+];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -16,7 +16,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "Cozy"; # Define your hostname.
+  
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -36,8 +36,6 @@
   hardware.nvidia.open = true;	
   hardware.nvidia.modesetting.enable = true;
 
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Australia/Hobart";
@@ -108,8 +106,7 @@
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  #Enable Flakes
-  nix .settings .experimental-features = [ "nix-command" "flakes" ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
