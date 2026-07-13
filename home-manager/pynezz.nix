@@ -1,6 +1,10 @@
 { ... }:
 
 {
+  imports = [
+    ./modules
+  ];
+
   home.username = "pynezz";
   home.homeDirectory = "/home/pynezz";
 
