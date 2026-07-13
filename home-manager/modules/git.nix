@@ -4,10 +4,12 @@
   programs.git = {
     enable = true;
 
-    userName = "pynezz";
-    userEmail = "CHANGE_ME";
+    settings = {
+      user = {
+        name = "LaurenPyne";
+        email = "lauren.pyne@proton.me";
+      };
 
-    extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = false;
     };
