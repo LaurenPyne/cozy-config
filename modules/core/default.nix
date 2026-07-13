@@ -3,7 +3,8 @@
 {
   imports = [
     ./boot.nix
-    ./networking.nix
     ./locale.nix
+    ./networking.nix
+    ./nix.nix
   ];
 }
