@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./git.nix
-    ./terminal
+    ./ghostty.nix
   ];
 }
