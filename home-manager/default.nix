@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  imports = [
+    ./pynezz.nix
+  ];
+}
