@@ -1,33 +1,57 @@
+# Cozy - Task Runner
+#
+# Run `just` to see available commands.
+
 default:
     @just --list
 
+# Build the system without activating it
 build:
     sudo nixos-rebuild build --flake .#Cozy
 
+# Build and activate the configuration
 switch:
     sudo nixos-rebuild switch --flake .#Cozy
 
-boot:
-    sudo nixos-rebuild boot --flake .#Cozy
-
-test:
-    sudo nixos-rebuild test --flake .#Cozy
-
-check:
-    nix flake check
-
-status:
-    git status
-
-log:
-    git log --oneline --graph --decorate -15
-
+# Update flake inputs
 update:
     nix flake update
 
-clean:
-    nix store gc
-
+# Format all Nix files
 fmt:
-    echo "Formatter will be added later."
+    nix fmt
 
+# Show repository status
+status:
+    git status
+
+# Show recent commits
+log:
+    git log --oneline --graph --decorate -10
+
+# Push current branch
+push:
+    git push
+
+# Pull latest changes
+pull:
+    git pull
+
+# Validate the configuration
+validate:
+    @echo "==> Formatting..."
+    nix fmt
+
+    @echo "==> Building..."
+    sudo nixos-rebuild build --flake .#Cozy
+
+    @echo ""
+    @echo "✓ Validation complete."
+
+# Remove old system generations
+clean:
+    sudo nix-collect-garbage -d
+
+# Show flake metadata
+info:
+    nix flake metadata
