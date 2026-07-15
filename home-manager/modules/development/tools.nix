@@ -3,27 +3,22 @@
 {
   home.packages = with pkgs; [
     just
-
+    eza
+    bat
     fd
     ripgrep
     jq
     tree
-
-    zip
     unzip
-
+    zip
     curl
     wget
-
     btop
     dust
     duf
+
+    statix
+    deadnix
+    treefmt
   ];
-
-  programs.bat.enable = true;
-
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-  };
 }

@@ -23,9 +23,9 @@
         "nix.serverPath" = "nixd";
       };
       extensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
-      mkhl.direnv
-       ];
+        jnoortheen.nix-ide
+        mkhl.direnv
+      ];
     };
   };
 }

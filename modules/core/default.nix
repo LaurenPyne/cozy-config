@@ -1,7 +1,8 @@
-{ ... }:
+_:
 
 {
   imports = [
+    ./audio.nix
     ./boot.nix
     ./graphics.nix
     ./locale.nix

@@ -1,10 +1,12 @@
-{ ... }:
+_:
 
 {
   imports = [
-    ./cli.nix
+    ./tools.nix
+    ./direnv.nix
     ./git.nix
-    ./python.nix
+    ./pre-commit.nix
     ./vscode.nix
+    ./languages
   ];
 }

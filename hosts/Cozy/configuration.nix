@@ -6,10 +6,10 @@
 
 {
   imports = [
-  ./hardware-configuration.nix
-  
-  ../../modules/core
-  ../../modules/desktop
+    ./hardware-configuration.nix
+
+    ../../modules/core
+    ../../modules/desktop
   ];
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -17,53 +17,33 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  
+
   #Cleanup store
   nix.gc = {
-  automatic = true;
-  options = "--delete-older-than 30d";
+    automatic = true;
+    options = "--delete-older-than 30d";
   };
   nix.optimise.automatic = true;
-  
-   #Enable graphics drivers
-  hardware.graphics.enable = true;
-  #services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = true;	
-  hardware.nvidia.modesetting.enable = true;
 
+  services = {
+    xserver.xkb = {
+      layout = "au";
+      variant = "";
+    };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+    printing.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+    pulseaudio.enable = false;
 
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "au";
-    variant = "";
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -72,49 +52,32 @@
   users.users.pynezz = {
     isNormalUser = true;
     description = "pynezz";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    thunderbird
+    extraGroups = [
+      "networkmanager"
+      "wheel"
     ];
   };
 
   # Install Modules
   programs.steam.enable = true;
-  
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-   neovim
-   git
-   vimPlugins.lazy-nvim
-   librewolf
-   brave
-   ghostty
-   deluge
-   discord 
-   lutris
-   wget
-   gimp
-   vlc
-   mov-cli
-   libreoffice
-   protonplus
-   wine
-   zoom-us
-   wireshark
-   vscode
-   obsidian
-   net-tools
-   rustup
-   rustlings
-   python3
-   direnv
-];
-
- 
+    neovim
+    git
+    vimPlugins.lazy-nvim
+    ghostty
+    wget
+    wine
+    wireshark
+    vscode
+    net-tools
+    direnv
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

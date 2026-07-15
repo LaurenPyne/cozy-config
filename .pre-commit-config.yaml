@@ -1,0 +1,26 @@
+repos:
+  - repo: local
+    hooks:
+      - id: treefmt
+        name: Format files
+        entry: treefmt
+        language: system
+        pass_filenames: false
+
+      - id: statix
+        name: Statix
+        entry: statix check .
+        language: system
+        pass_filenames: false
+
+      - id: deadnix
+        name: Deadnix
+        entry: deadnix .
+        language: system
+        pass_filenames: false
+
+      - id: flake-check
+        name: Nix Flake Check
+        entry: nix flake check
+        language: system
+        pass_filenames: false

@@ -15,28 +15,39 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, sops-nix, ... }: {
-    nixosConfigurations.Cozy = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+  outputs =
+    inputs@{
+      nixpkgs,
+      home-manager,
+      sops-nix,
+      ...
+    }:
+    {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
 
-      specialArgs = {
-        inherit inputs;
+      nixosConfigurations.Cozy = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        specialArgs = {
+          inherit inputs;
+        };
+
+        modules = [
+          ./hosts/Cozy/configuration.nix
+
+          home-manager.nixosModules.home-manager
+
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+
+              users.pynezz = import ./home-manager/pynezz.nix;
+            };
+          }
+
+          sops-nix.nixosModules.sops
+        ];
       };
-
-      modules = [
-        ./hosts/Cozy/configuration.nix
-
-        home-manager.nixosModules.home-manager
-
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-
-          home-manager.users.pynezz = import ./home-manager/pynezz.nix;
-        }
-
-        sops-nix.nixosModules.sops
-      ];
     };
-  };
 }
