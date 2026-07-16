@@ -2,8 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    python3
-    uv
-    ruff
+    lua
+    stylua
+    lua-language-server
   ];
 }

@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    libreoffice
-    obsidian
+  environment.systemPackages = with pkgs; [
+    vlc
+    mov-cli
   ];
 }

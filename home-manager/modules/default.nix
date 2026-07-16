@@ -4,7 +4,8 @@ _:
   imports = [
     ./terminal
     ./appearance
-    ./development
     ./apps
+    ./gaming
+    ./environments
   ];
 }

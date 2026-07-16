@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
+  programs.steam.enable = true;
+
+  environment.systemPackages = with pkgs; [
     lutris
     protonplus
   ];

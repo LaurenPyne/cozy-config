@@ -10,6 +10,7 @@
 
     ../../modules/core
     ../../modules/desktop
+    ../../modules/apps
   ];
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -57,9 +58,6 @@
       "wheel"
     ];
   };
-
-  # Install Modules
-  programs.steam.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
