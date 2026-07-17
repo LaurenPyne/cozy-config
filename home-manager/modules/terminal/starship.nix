@@ -11,19 +11,51 @@
         error_symbol = "[❯](bold red)";
       };
 
-      directory.truncation_length = 3;
+      directory = {
+        truncation_length = 3;
+        truncate_to_repo = true;
+        read_only = " ";
+      };
 
-      git_branch.symbol = " ";
+      git_branch = {
+        symbol = " ";
+      };
 
-      git_status.disabled = false;
+      git_status = {
+        disabled = false;
 
-      rust.symbol = " ";
+        ahead = "⇡";
+        behind = "⇣";
+        diverged = "⇕";
 
-      python.symbol = " ";
+        modified = "!";
+        staged = "+";
+        untracked = "?";
+        deleted = "✘";
+        renamed = "»";
+      };
 
-      lua.symbol = " ";
+      cmd_duration = {
+        min_time = 2000;
+        format = "took [$duration]($style)";
+      };
 
-      nix_shell.symbol = "❄ ";
+      rust = {
+        symbol = "🦀 ";
+      };
+
+      python = {
+        symbol = "🐍 ";
+      };
+
+      lua = {
+        symbol = "🌙 ";
+      };
+
+      nix_shell = {
+        symbol = "❄ ";
+        format = "[$symbol$state]($style) ";
+      };
     };
   };
 }

@@ -1,0 +1,678 @@
+cozy-config on  main [+⇡]
+❯ ghostty --version
+Ghostty 1.3.1
+
+Version
+  - version: 1.3.1
+  - channel: stable
+Build Config
+  - Zig version   : 0.15.2
+  - build mode    : .ReleaseFast
+  - app runtime   : .gtk
+  - font engine   : .fontconfig_freetype
+  - renderer      : renderer.generic.Renderer(renderer.OpenGL)
+  - libxev        : io_uring
+  - kernel version: 7.1.3
+  - desktop env   : gnome
+  - GTK version   :
+    build         : 4.22.4
+    runtime       : 4.22.4
+  - libadwaita    : enabled
+    build         : 1.9.1
+    runtime       : 1.9.1
+  - libX11        : enabled
+  - libwayland    : enabled
+
+cozy-config on  main [+⇡]
+❯ sudo nixos-rebuild switch --flake .#Cozy --show-trace
+warning: Git tree '/home/pynezz/cozy-config' is dirty
+building the system configuration...
+warning: Git tree '/home/pynezz/cozy-config' is dirty
+Checking switch inhibitors... done
+Skipping "/boot/EFI/systemd/systemd-bootx64.efi", same boot loader version in place already.
+Skipping "/boot/EFI/BOOT/BOOTX64.EFI", same boot loader version in place already.
+activating the configuration...
+setting up /etc...
+reloading user units for pynezz...
+restarting the following user units: nixos-activation.service
+restarting sysinit-reactivation.target
+the following new units were started: NetworkManager-dispatcher.service
+Done. The new configuration is /nix/store/fvamhi2ajxl8shbsyh1pycvpal603bln-nixos-system-Cozy-26.11.20260711.e7a3ca8
+
+cozy-config on  main [+⇡] took 2s
+❯ journalctl --user -b --no-pager | grep -i ghostty -A5 -B5
+Jul 17 10:04:36 Cozy systemd[2449]: Listening on D-Bus User Message Bus Socket.
+Jul 17 10:04:36 Cozy systemd[2449]: Listening on GCR ssh-agent wrapper.
+Jul 17 10:04:36 Cozy systemd[2449]: Finished Create User Files and Directories.
+Jul 17 10:04:36 Cozy systemd[2449]: Reached target Sockets.
+Jul 17 10:04:36 Cozy systemd[2449]: Starting D-Bus User Message Bus...
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/etc/profiles/per-user/pynezz/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/run/current-system/sw/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Policy to allow eavesdropping in /etc/dbus-1/session.conf +27: Eavesdropping is deprecated and ignored
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Policy to allow eavesdropping in /etc/dbus-1/session.conf +29: Eavesdropping is deprecated and ignored
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/yq7y1panam1z8xby7p28asd8d9id3z96-colord-1.4.8/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'ca.desrt.dconf' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/ca.desrt.dconf.service'
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-renderer' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.intel.dleyna-renderer.service'
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-server' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.intel.dleyna-server.service'
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.a11y.Bus' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.a11y.Bus.service'
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.bluez.obex' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.bluez.obex.service'
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.FileManager1' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.freedesktop.FileManager1.service'
+Jul 17 10:04:36 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.IBus' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.freedesktop.IBus.service'
+--
+Jul 17 10:04:40 Cozy localsearch-3[2819]: file ../gio/gfileinfo.c: line 1625 (g_file_info_get_file_type): should not be reached
+Jul 17 10:04:40 Cozy localsearch-3[2819]: GFileInfo created without standard::type
+Jul 17 10:04:40 Cozy localsearch-3[2819]: file ../gio/gfileinfo.c: line 1625 (g_file_info_get_file_type): should not be reached
+Jul 17 10:04:40 Cozy localsearch-3[2819]: g_date_time_ref: assertion 'datetime != NULL' failed
+Jul 17 10:04:40 Cozy localsearch-3[2819]: g_date_time_difference: assertion 'begin != NULL' failed
+Jul 17 10:04:40 Cozy systemd[2449]: Starting Ghostty...
+Jul 17 10:04:40 Cozy ghostty[3227]: info: ghostty version=1.3.1
+Jul 17 10:04:40 Cozy ghostty[3227]: info: ghostty build optimize=ReleaseFast
+Jul 17 10:04:40 Cozy ghostty[3227]: info: runtime=.gtk
+Jul 17 10:04:40 Cozy ghostty[3227]: info: font_backend=.fontconfig_freetype
+Jul 17 10:04:40 Cozy ghostty[3227]: info: dependency harfbuzz=13.2.1
+Jul 17 10:04:40 Cozy ghostty[3227]: info: dependency fontconfig=21801
+Jul 17 10:04:40 Cozy ghostty[3227]: info: renderer=renderer.generic.Renderer(renderer.OpenGL)
+Jul 17 10:04:40 Cozy ghostty[3227]: info: libxev default backend=io_uring
+Jul 17 10:04:40 Cozy ghostty[3227]: info(os_locale): setlocale from env result=en_AU.UTF-8
+Jul 17 10:04:40 Cozy ghostty[3227]: info(gtk): GTK version build=4.22.4 runtime=4.22.4
+Jul 17 10:04:40 Cozy ghostty[3227]: info(gtk): libadwaita version build=1.9.1 runtime=1.9.1
+Jul 17 10:04:40 Cozy ghostty[3227]: info: reading configuration file path=/home/pynezz/.config/ghostty/config
+Jul 17 10:04:40 Cozy ghostty[3227]: warning(gtk_ghostty_application): setting GDK_DEBUG=
+Jul 17 10:04:40 Cozy ghostty[3227]: warning(gtk_ghostty_application): setting GDK_DISABLE=gles-api,vulkan
+Jul 17 10:04:40 Cozy ghostty[3227]: warning(glib): WARNING: Adwaita: The resource style-dark.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 10:04:40 Cozy ghostty[3227]: warning(glib): WARNING: Adwaita: The resource style-hc.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 10:04:40 Cozy ghostty[3227]: warning(glib): WARNING: Adwaita: The resource style-hc-dark.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 10:04:40 Cozy systemd[2449]: Started Ghostty.
+Jul 17 10:04:41 Cozy ghostty[3227]: info(opengl): loaded OpenGL 4.6
+Jul 17 10:04:41 Cozy ghostty[3227]: info(font_shared_grid_set): font regular: JetBrainsMono NF Regular
+Jul 17 10:04:41 Cozy ghostty[3227]: info(font_shared_grid_set): font bold: JetBrainsMono NF Bold
+Jul 17 10:04:41 Cozy ghostty[3227]: info(font_shared_grid_set): font italic: JetBrainsMono NF Italic
+Jul 17 10:04:41 Cozy ghostty[3227]: info(font_shared_grid_set): font bold_italic: JetBrainsMono NF Bold Italic
+Jul 17 10:04:41 Cozy ghostty[3227]: info(io_exec): found Ghostty resources dir: /nix/store/znqms41g7lgxzxmgcvah7jvv5kcc51v0-ghostty-1.3.1/share/ghostty
+Jul 17 10:04:41 Cozy ghostty[3227]: info(io_exec): shell integration automatically injected shell=.fish
+Jul 17 10:04:41 Cozy ghostty[3227]: warning(gtk_ghostty_application): unimplemented action=.cell_size
+Jul 17 10:04:41 Cozy systemd[2449]: Started app-ghostty-surface-transient-3268.scope.
+Jul 17 10:04:41 Cozy ghostty[3227]: info(io_exec): started subcommand path=/bin/sh pid=3268
+Jul 17 10:04:48 Cozy ghostty[3227]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:04:51 Cozy sudo[3347]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz ; USER=root ; COMMAND=/run/current-system/sw/bin/nix-collect-garbage -d
+Jul 17 10:04:51 Cozy sudo[3347]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 10:04:51 Cozy ghostty[3227]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:05:18 Cozy sudo[3347]: pam_unix(sudo:session): session closed for user root
+Jul 17 10:05:23 Cozy ghostty[3227]: info(io_exec): pty fd closed, read thread exiting
+Jul 17 10:05:23 Cozy systemd[2449]: app-ghostty-surface-transient-3268.scope: Consumed 12.120s CPU time over 42.406s wall clock time, 1.6G memory peak.
+Jul 17 10:05:23 Cozy ghostty[3227]: info(surface): surface closed addr=5e2cc0d59350
+Jul 17 10:05:23 Cozy systemd[2449]: app-com.mitchellh.ghostty.service: Consumed 4.171s CPU time over 42.943s wall clock time, 91.6M memory peak.
+Jul 17 10:05:25 Cozy systemd[2449]: Started Application launched by gnome-shell.
+Jul 17 10:05:38 Cozy systemd[2449]: Starting Virtual filesystem metadata service...
+Jul 17 10:05:38 Cozy systemd[2449]: Started Virtual filesystem metadata service.
+Jul 17 10:05:40 Cozy systemd[2449]: Started Application launched by gnome-shell.
+Jul 17 10:05:40 Cozy discord.desktop[3823]: [Nix] Disabling updates already done
+--
+Jul 17 10:12:19 Cozy discord.desktop[3821]: 10:12:19.493 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:12:19 Cozy discord.desktop[3821]: 10:12:19.494 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:12:19 Cozy discord.desktop[3821]: 10:12:19.495 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:12:19 Cozy discord.desktop[3821]: 10:12:19.495 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:12:19 Cozy discord.desktop[3821]: 10:12:19.496 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:12:44 Cozy systemd[2449]: Starting Ghostty...
+Jul 17 10:12:44 Cozy ghostty[4967]: info: ghostty version=1.3.1
+Jul 17 10:12:44 Cozy ghostty[4967]: info: ghostty build optimize=ReleaseFast
+Jul 17 10:12:44 Cozy ghostty[4967]: info: runtime=.gtk
+Jul 17 10:12:44 Cozy ghostty[4967]: info: font_backend=.fontconfig_freetype
+Jul 17 10:12:44 Cozy ghostty[4967]: info: dependency harfbuzz=13.2.1
+Jul 17 10:12:44 Cozy ghostty[4967]: info: dependency fontconfig=21801
+Jul 17 10:12:44 Cozy ghostty[4967]: info: renderer=renderer.generic.Renderer(renderer.OpenGL)
+Jul 17 10:12:44 Cozy ghostty[4967]: info: libxev default backend=io_uring
+Jul 17 10:12:44 Cozy ghostty[4967]: info(os_locale): setlocale from env result=en_AU.UTF-8
+Jul 17 10:12:44 Cozy ghostty[4967]: info(gtk): GTK version build=4.22.4 runtime=4.22.4
+Jul 17 10:12:44 Cozy ghostty[4967]: info(gtk): libadwaita version build=1.9.1 runtime=1.9.1
+Jul 17 10:12:44 Cozy ghostty[4967]: info: reading configuration file path=/home/pynezz/.config/ghostty/config
+Jul 17 10:12:44 Cozy ghostty[4967]: warning(gtk_ghostty_application): setting GDK_DEBUG=
+Jul 17 10:12:44 Cozy ghostty[4967]: warning(gtk_ghostty_application): setting GDK_DISABLE=gles-api,vulkan
+Jul 17 10:12:44 Cozy ghostty[4967]: warning(glib): WARNING: Adwaita: The resource style-dark.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 10:12:44 Cozy ghostty[4967]: warning(glib): WARNING: Adwaita: The resource style-hc.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 10:12:44 Cozy ghostty[4967]: warning(glib): WARNING: Adwaita: The resource style-hc-dark.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 10:12:44 Cozy systemd[2449]: Started Ghostty.
+Jul 17 10:12:44 Cozy ghostty[4967]: info(opengl): loaded OpenGL 4.6
+Jul 17 10:12:44 Cozy ghostty[4967]: info(font_shared_grid_set): font regular: JetBrainsMono NF Regular
+Jul 17 10:12:44 Cozy ghostty[4967]: info(font_shared_grid_set): font bold: JetBrainsMono NF Bold
+Jul 17 10:12:44 Cozy ghostty[4967]: info(font_shared_grid_set): font italic: JetBrainsMono NF Italic
+Jul 17 10:12:44 Cozy ghostty[4967]: info(font_shared_grid_set): font bold_italic: JetBrainsMono NF Bold Italic
+Jul 17 10:12:44 Cozy ghostty[4967]: info(io_exec): found Ghostty resources dir: /nix/store/znqms41g7lgxzxmgcvah7jvv5kcc51v0-ghostty-1.3.1/share/ghostty
+Jul 17 10:12:44 Cozy ghostty[4967]: info(io_exec): shell integration automatically injected shell=.fish
+Jul 17 10:12:44 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.cell_size
+Jul 17 10:12:44 Cozy systemd[2449]: Started app-ghostty-surface-transient-5008.scope.
+Jul 17 10:12:44 Cozy ghostty[4967]: info(io_exec): started subcommand path=/bin/sh pid=5008
+Jul 17 10:12:45 Cozy discord.desktop[3821]: 10:12:45.052 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:12:45 Cozy discord.desktop[3821]: 10:12:45.053 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:12:45 Cozy discord.desktop[3821]: 10:12:45.053 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:12:45 Cozy discord.desktop[3821]: 10:12:45.054 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:12:45 Cozy discord.desktop[3821]: 10:12:45.054 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 10:19:30 Cozy discord.desktop[3821]: 10:19:30.293 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:19:30 Cozy discord.desktop[3821]: 10:19:30.293 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:19:30 Cozy discord.desktop[3821]: 10:19:30.293 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:19:30 Cozy discord.desktop[3821]: 10:19:30.294 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:19:30 Cozy discord.desktop[3821]: 10:19:30.294 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:20:28 Cozy ghostty[4967]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 10:20:46 Cozy discord.desktop[3821]: 10:20:46.478 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:20:46 Cozy discord.desktop[3821]: 10:20:46.478 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:20:46 Cozy discord.desktop[3821]: 10:20:46.478 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:20:46 Cozy discord.desktop[3821]: 10:20:46.478 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:20:46 Cozy discord.desktop[3821]: 10:20:46.478 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 10:20:50 Cozy discord.desktop[3821]: 10:20:50.373 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:20:50 Cozy discord.desktop[3821]: 10:20:50.374 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:20:50 Cozy discord.desktop[3821]: 10:20:50.375 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:20:50 Cozy discord.desktop[3821]: 10:20:50.375 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:20:50 Cozy discord.desktop[3821]: 10:20:50.375 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:21:08 Cozy ghostty[4967]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 10:22:51 Cozy ghostty[4967]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 10:23:14 Cozy discord.desktop[3821]: 10:23:14.309 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:23:14 Cozy discord.desktop[3821]: 10:23:14.310 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:23:14 Cozy discord.desktop[3821]: 10:23:14.310 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:23:14 Cozy discord.desktop[3821]: 10:23:14.311 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:23:14 Cozy discord.desktop[3821]: 10:23:14.311 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 10:30:50 Cozy discord.desktop[3821]: 10:30:50.442 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:30:50 Cozy discord.desktop[3821]: 10:30:50.443 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:30:50 Cozy discord.desktop[3821]: 10:30:50.444 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:30:50 Cozy discord.desktop[3821]: 10:30:50.444 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:30:50 Cozy discord.desktop[3821]: 10:30:50.444 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:31:46 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:31:56 Cozy sudo[7015]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild build --flake .#Cozy
+Jul 17 10:31:56 Cozy sudo[7015]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 10:31:56 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:32:07 Cozy sudo[7015]: pam_unix(sudo:session): session closed for user root
+Jul 17 10:32:17 Cozy discord.desktop[3821]: 10:32:17.640 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:32:17 Cozy discord.desktop[3821]: 10:32:17.641 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:32:17 Cozy discord.desktop[3821]: 10:32:17.641 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:32:17 Cozy discord.desktop[3821]: 10:32:17.641 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 10:36:57 Cozy discord.desktop[3821]: 10:36:57.765 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:36:57 Cozy discord.desktop[3821]: 10:36:57.766 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:36:57 Cozy discord.desktop[3821]: 10:36:57.766 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:36:57 Cozy discord.desktop[3821]: 10:36:57.767 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:36:57 Cozy discord.desktop[3821]: 10:36:57.767 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:37:28 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:37:36 Cozy sudo[10267]: pam_unix(sudo:auth): authentication failure; logname=pynezz uid=1000 euid=0 tty=/dev/pts/0 ruser=pynezz rhost=  user=pynezz
+Jul 17 10:37:36 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:37:37 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:37:45 Cozy sudo[10267]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild switch --flake .#Cozy
+Jul 17 10:37:45 Cozy sudo[10267]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 10:37:46 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:37:48 Cozy systemd[2449]: Reexecution requested from client PID 10544 ('switch-to-confi')...
+Jul 17 10:37:48 Cozy systemd[2449]: Reexecuting.
+Jul 17 10:37:48 Cozy systemd[2449]: Failed to adjust io pressure threshold, ignoring: Device or resource busy
+Jul 17 10:37:48 Cozy systemd-xdg-autostart-generator[10550]: Exec binary '/nix/store/8dm0isas80vwmb031p5r7lg2967pfpa3-protonmail-bridge-gui-3.21.2/lib/bridge-gui' does not exist: No such file or directory
+Jul 17 10:37:48 Cozy systemd-xdg-autostart-generator[10550]: /home/pynezz/.config/autostart/ProtonMailBridge.desktop: not generating unit, executable specified in Exec= does not exist.
+--
+Jul 17 10:37:49 Cozy hm-activate-pynezz[10564]: Activating installPackages
+Jul 17 10:37:49 Cozy hm-activate-pynezz[10564]: Activating linkGeneration
+Jul 17 10:37:49 Cozy hm-activate-pynezz[10564]: Cleaning up orphan links from /home/pynezz
+Jul 17 10:37:49 Cozy hm-activate-pynezz[10564]: Creating home file links in /home/pynezz
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Noticed file-system modification, trigger reload.
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/etc/profiles/per-user/pynezz/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/run/current-system/sw/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/yq7y1panam1z8xby7p28asd8d9id3z96-colord-1.4.8/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'ca.desrt.dconf' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/ca.desrt.dconf.service'
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-renderer' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.intel.dleyna-renderer.service'
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-server' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.intel.dleyna-server.service'
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.a11y.Bus' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.a11y.Bus.service'
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.bluez.obex' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.bluez.obex.service'
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Policy to allow eavesdropping in /etc/dbus-1/session.conf +27: Eavesdropping is deprecated and ignored
+Jul 17 10:37:49 Cozy dbus-broker-launch[2462]: Policy to allow eavesdropping in /etc/dbus-1/session.conf +29: Eavesdropping is deprecated and ignored
+--
+Jul 17 10:37:49 Cozy systemd-xdg-autostart-generator[10792]: /home/pynezz/.config/autostart/ProtonMailBridge.desktop: not generating unit, executable specified in Exec= does not exist.
+Jul 17 10:37:49 Cozy systemd[2449]: Reloading finished in 156 ms.
+Jul 17 10:37:49 Cozy systemd[2449]: Failed to adjust io pressure threshold, ignoring: Device or resource busy
+Jul 17 10:37:49 Cozy hm-activate-pynezz[10564]: Activating vscodeProfiles
+Jul 17 10:37:50 Cozy sudo[10267]: pam_unix(sudo:session): session closed for user root
+Jul 17 10:37:58 Cozy ghostty[4967]: info(opengl): loaded OpenGL 4.6
+Jul 17 10:37:58 Cozy ghostty[4967]: info(io_exec): found Ghostty resources dir: /nix/store/znqms41g7lgxzxmgcvah7jvv5kcc51v0-ghostty-1.3.1/share/ghostty
+Jul 17 10:37:58 Cozy ghostty[4967]: info(io_exec): shell integration automatically injected shell=.fish
+Jul 17 10:37:58 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.cell_size
+Jul 17 10:37:58 Cozy systemd[2449]: Started app-ghostty-surface-transient-10979.scope.
+Jul 17 10:37:58 Cozy ghostty[4967]: info(io_exec): started subcommand path=/bin/sh pid=10979
+Jul 17 10:38:13 Cozy ghostty[4967]: info(io_exec): pty fd closed, read thread exiting
+Jul 17 10:38:13 Cozy ghostty[4967]: info(surface): surface closed addr=5c0cb0af4c30
+Jul 17 10:38:17 Cozy ghostty[4967]: info(opengl): loaded OpenGL 4.6
+Jul 17 10:38:17 Cozy ghostty[4967]: info(io_exec): found Ghostty resources dir: /nix/store/znqms41g7lgxzxmgcvah7jvv5kcc51v0-ghostty-1.3.1/share/ghostty
+Jul 17 10:38:17 Cozy ghostty[4967]: info(io_exec): shell integration automatically injected shell=.fish
+Jul 17 10:38:17 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.cell_size
+Jul 17 10:38:17 Cozy systemd[2449]: Started app-ghostty-surface-transient-11136.scope.
+Jul 17 10:38:17 Cozy ghostty[4967]: info(io_exec): started subcommand path=/bin/sh pid=11136
+Jul 17 10:38:19 Cozy ghostty[4967]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 10:38:48 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:38:54 Cozy sudo[11363]:   pynezz : TTY=pts/1 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild build --flake .#Cozy
+Jul 17 10:38:54 Cozy sudo[11363]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 10:38:54 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:38:54 Cozy sudo[11363]: pam_unix(sudo:session): session closed for user root
+Jul 17 10:39:01 Cozy sudo[11469]:   pynezz : TTY=pts/1 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild switch --flake .#Cozy
+Jul 17 10:39:01 Cozy sudo[11469]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 10:39:02 Cozy systemd[2449]: Reexecution requested from client PID 11744 ('switch-to-confi')...
+Jul 17 10:39:02 Cozy systemd[2449]: Reexecuting.
+--
+Jul 17 10:39:02 Cozy systemd[2449]: Stopped Run user-specific NixOS activation.
+Jul 17 10:39:02 Cozy systemd[2449]: Stopping Run user-specific NixOS activation...
+Jul 17 10:39:02 Cozy systemd[2449]: Starting Run user-specific NixOS activation...
+Jul 17 10:39:02 Cozy systemd[2449]: Finished Run user-specific NixOS activation.
+Jul 17 10:39:03 Cozy sudo[11469]: pam_unix(sudo:session): session closed for user root
+Jul 17 10:39:05 Cozy ghostty[4967]: info(io_exec): pty fd closed, read thread exiting
+Jul 17 10:39:05 Cozy systemd[2449]: app-ghostty-surface-transient-11136.scope: Consumed 26.207s CPU time over 47.626s wall clock time, 1.2G memory peak.
+Jul 17 10:39:05 Cozy ghostty[4967]: info(surface): surface closed addr=5c0cb0ca0330
+Jul 17 10:40:12 Cozy discord.desktop[3821]: 10:40:12.818 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:40:12 Cozy discord.desktop[3821]: 10:40:12.818 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:40:12 Cozy discord.desktop[3821]: 10:40:12.819 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:40:12 Cozy discord.desktop[3821]: 10:40:12.819 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:40:12 Cozy discord.desktop[3821]: 10:40:12.819 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 10:54:00 Cozy discord.desktop[3821]: 10:54:00.803 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:54:00 Cozy discord.desktop[3821]: 10:54:00.803 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:54:00 Cozy discord.desktop[3821]: 10:54:00.803 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:54:00 Cozy discord.desktop[3821]: 10:54:00.803 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:54:00 Cozy discord.desktop[3821]: 10:54:00.803 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 10:54:27 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:54:32 Cozy sudo[13001]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild build --flake .#Cozy
+Jul 17 10:54:32 Cozy sudo[13001]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 10:54:32 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 10:54:45 Cozy sudo[13001]: pam_unix(sudo:session): session closed for user root
+Jul 17 10:54:51 Cozy sudo[15748]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild switch --flake .#Cozy
+Jul 17 10:54:51 Cozy sudo[15748]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 10:54:53 Cozy systemd[2449]: Reexecution requested from client PID 16023 ('switch-to-confi')...
+Jul 17 10:54:53 Cozy systemd[2449]: Reexecuting.
+--
+Jul 17 10:54:54 Cozy hm-activate-pynezz[16040]: Activating installPackages
+Jul 17 10:54:54 Cozy hm-activate-pynezz[16040]: Activating linkGeneration
+Jul 17 10:54:54 Cozy hm-activate-pynezz[16040]: Cleaning up orphan links from /home/pynezz
+Jul 17 10:54:54 Cozy hm-activate-pynezz[16040]: Creating home file links in /home/pynezz
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Noticed file-system modification, trigger reload.
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/etc/profiles/per-user/pynezz/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/run/current-system/sw/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/yq7y1panam1z8xby7p28asd8d9id3z96-colord-1.4.8/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'ca.desrt.dconf' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/ca.desrt.dconf.service'
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-renderer' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.intel.dleyna-renderer.service'
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-server' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.intel.dleyna-server.service'
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.a11y.Bus' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.a11y.Bus.service'
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.bluez.obex' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.bluez.obex.service'
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.FileManager1' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.freedesktop.FileManager1.service'
+Jul 17 10:54:54 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.IBus' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.freedesktop.IBus.service'
+--
+Jul 17 11:10:50 Cozy discord.desktop[3821]: 11:10:50.630 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:10:50 Cozy discord.desktop[3821]: 11:10:50.630 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:10:50 Cozy discord.desktop[3821]: 11:10:50.630 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:10:50 Cozy discord.desktop[3821]: 11:10:50.630 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:10:50 Cozy discord.desktop[3821]: 11:10:50.630 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:10:53 Cozy ghostty[4967]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 11:11:39 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 11:11:42 Cozy sudo[17396]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild build --flake .#Cozy
+Jul 17 11:11:42 Cozy sudo[17396]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 11:11:42 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 11:11:52 Cozy sudo[17396]: pam_unix(sudo:session): session closed for user root
+Jul 17 11:12:15 Cozy sudo[19374]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild switch --flake .#Cozy
+Jul 17 11:12:15 Cozy sudo[19374]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 11:12:17 Cozy systemd[2449]: Reexecution requested from client PID 19651 ('switch-to-confi')...
+Jul 17 11:12:17 Cozy systemd[2449]: Reexecuting.
+--
+Jul 17 11:12:17 Cozy hm-activate-pynezz[19668]: Activating installPackages
+Jul 17 11:12:17 Cozy hm-activate-pynezz[19668]: Activating linkGeneration
+Jul 17 11:12:17 Cozy hm-activate-pynezz[19668]: Cleaning up orphan links from /home/pynezz
+Jul 17 11:12:17 Cozy hm-activate-pynezz[19668]: Creating home file links in /home/pynezz
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Noticed file-system modification, trigger reload.
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/etc/profiles/per-user/pynezz/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/run/current-system/sw/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/yq7y1panam1z8xby7p28asd8d9id3z96-colord-1.4.8/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'ca.desrt.dconf' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/ca.desrt.dconf.service'
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-renderer' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.intel.dleyna-renderer.service'
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-server' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.intel.dleyna-server.service'
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.a11y.Bus' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.a11y.Bus.service'
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.bluez.obex' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.bluez.obex.service'
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.FileManager1' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.freedesktop.FileManager1.service'
+Jul 17 11:12:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.IBus' in service file '/nix/store/sr3kra6zvvzk84c69h3bciswndhdkmif-system-path/share/dbus-1/services/org.freedesktop.IBus.service'
+--
+Jul 17 11:12:51 Cozy discord.desktop[3821]: 11:12:51.935 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:12:51 Cozy discord.desktop[3821]: 11:12:51.936 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:12:51 Cozy discord.desktop[3821]: 11:12:51.936 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:12:51 Cozy discord.desktop[3821]: 11:12:51.936 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:12:51 Cozy discord.desktop[3821]: 11:12:51.936 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:12:57 Cozy ghostty[4967]: info(font_codepoint_resolver): found codepoint 0x21E1 in fallback face=DejaVu Sans Mono
+Jul 17 11:14:33 Cozy gnome-shell[2539]: Could not apply discrete GPU environment, switcheroo-control not available
+Jul 17 11:14:33 Cozy systemd[2449]: Started Application launched by gnome-shell.
+Jul 17 11:14:33 Cozy steam-runtime-steam-remote[20518]: steam-runtime-steam-remote: Steam is not running: No such device or address
+Jul 17 11:14:34 Cozy steam[20530]: steam.sh[20470]: Running Steam on nixos 26.11 64-bit
+Jul 17 11:14:34 Cozy steam[20530]: steam.sh[20470]: STEAM_RUNTIME is enabled automatically
+--
+Jul 17 11:37:03 Cozy discord.desktop[3821]: 11:37:03.848 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:37:03 Cozy discord.desktop[3821]: 11:37:03.848 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:37:03 Cozy discord.desktop[3821]: 11:37:03.849 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:37:03 Cozy discord.desktop[3821]: 11:37:03.849 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:37:03 Cozy discord.desktop[3821]: 11:37:03.849 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:37:14 Cozy ghostty[4967]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 11:39:02 Cozy discord.desktop[3821]: 11:39:02.413 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:39:02 Cozy discord.desktop[3821]: 11:39:02.413 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:39:02 Cozy discord.desktop[3821]: 11:39:02.413 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:39:02 Cozy discord.desktop[3821]: 11:39:02.414 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:39:02 Cozy discord.desktop[3821]: 11:39:02.414 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 11:40:08 Cozy discord.desktop[3821]: 11:40:08.976 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:40:08 Cozy discord.desktop[3821]: 11:40:08.977 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:40:08 Cozy discord.desktop[3821]: 11:40:08.977 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:40:08 Cozy discord.desktop[3821]: 11:40:08.978 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:40:08 Cozy discord.desktop[3821]: 11:40:08.978 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:40:42 Cozy ghostty[4967]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 11:40:50 Cozy discord.desktop[3821]: 11:40:50.408 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:40:50 Cozy discord.desktop[3821]: 11:40:50.409 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:40:50 Cozy discord.desktop[3821]: 11:40:50.409 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:40:50 Cozy discord.desktop[3821]: 11:40:50.409 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:40:50 Cozy discord.desktop[3821]: 11:40:50.409 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 11:43:25 Cozy discord.desktop[3821]: 11:43:25.654 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:25 Cozy discord.desktop[3821]: 11:43:25.654 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:25 Cozy discord.desktop[3821]: 11:43:25.654 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:25 Cozy discord.desktop[3821]: 11:43:25.655 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:25 Cozy discord.desktop[3821]: 11:43:25.655 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:32 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 11:43:32 Cozy discord.desktop[3821]: 11:43:32.818 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:32 Cozy discord.desktop[3821]: 11:43:32.818 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:32 Cozy discord.desktop[3821]: 11:43:32.819 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:32 Cozy discord.desktop[3821]: 11:43:32.819 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:32 Cozy discord.desktop[3821]: 11:43:32.819 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:32 Cozy discord.desktop[3821]: 11:43:32.820 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:35 Cozy sudo[25796]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild build --flake .#Cozy
+Jul 17 11:43:35 Cozy sudo[25796]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 11:43:35 Cozy ghostty[4967]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 11:43:46 Cozy discord.desktop[3821]: 11:43:46.327 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:46 Cozy discord.desktop[3821]: 11:43:46.328 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:46 Cozy discord.desktop[3821]: 11:43:46.328 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:46 Cozy discord.desktop[3821]: 11:43:46.328 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:43:46 Cozy discord.desktop[3821]: 11:43:46.328 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 11:44:17 Cozy systemd-xdg-autostart-generator[29273]: /home/pynezz/.config/autostart/ProtonMailBridge.desktop: not generating unit, executable specified in Exec= does not exist.
+Jul 17 11:44:17 Cozy systemd[2449]: Reloading finished in 163 ms.
+Jul 17 11:44:17 Cozy systemd[2449]: Failed to adjust io pressure threshold, ignoring: Device or resource busy
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Caught SIGHUP, trigger reload.
+Jul 17 11:44:17 Cozy systemd[2449]: Reloading D-Bus User Message Bus...
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/etc/profiles/per-user/pynezz/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/run/current-system/sw/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/yq7y1panam1z8xby7p28asd8d9id3z96-colord-1.4.8/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'ca.desrt.dconf' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/ca.desrt.dconf.service'
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-renderer' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.intel.dleyna-renderer.service'
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-server' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.intel.dleyna-server.service'
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.a11y.Bus' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.a11y.Bus.service'
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.bluez.obex' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.bluez.obex.service'
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.FileManager1' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.FileManager1.service'
+Jul 17 11:44:17 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.IBus' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.IBus.service'
+--
+Jul 17 11:44:17 Cozy hm-activate-pynezz[29277]: Activating installPackages
+Jul 17 11:44:17 Cozy hm-activate-pynezz[29277]: Activating linkGeneration
+Jul 17 11:44:17 Cozy hm-activate-pynezz[29277]: Cleaning up orphan links from /home/pynezz
+Jul 17 11:44:18 Cozy hm-activate-pynezz[29277]: Creating home file links in /home/pynezz
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Noticed file-system modification, trigger reload.
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/etc/profiles/per-user/pynezz/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/run/current-system/sw/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/yq7y1panam1z8xby7p28asd8d9id3z96-colord-1.4.8/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'ca.desrt.dconf' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/ca.desrt.dconf.service'
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-renderer' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.intel.dleyna-renderer.service'
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-server' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.intel.dleyna-server.service'
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.a11y.Bus' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.a11y.Bus.service'
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.bluez.obex' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.bluez.obex.service'
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.FileManager1' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.FileManager1.service'
+Jul 17 11:44:18 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.IBus' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.IBus.service'
+--
+Jul 17 11:44:18 Cozy systemd-xdg-autostart-generator[29521]: /home/pynezz/.config/autostart/ProtonMailBridge.desktop: not generating unit, executable specified in Exec= does not exist.
+Jul 17 11:44:18 Cozy systemd[2449]: Reloading finished in 161 ms.
+Jul 17 11:44:18 Cozy systemd[2449]: Failed to adjust io pressure threshold, ignoring: Device or resource busy
+Jul 17 11:44:18 Cozy hm-activate-pynezz[29277]: Activating vscodeProfiles
+Jul 17 11:44:18 Cozy sudo[28999]: pam_unix(sudo:session): session closed for user root
+Jul 17 11:44:29 Cozy ghostty[4967]: info(io_exec): pty fd closed, read thread exiting
+Jul 17 11:44:29 Cozy systemd[2449]: app-ghostty-surface-transient-5008.scope: Consumed 3min 35.566s CPU time over 1h 31min 44.896s wall clock time, 6.3G memory peak.
+Jul 17 11:44:29 Cozy ghostty[4967]: info(surface): surface closed addr=5c0caf3a67d0
+Jul 17 11:44:29 Cozy systemd[2449]: app-com.mitchellh.ghostty.service: Consumed 1min 3.134s CPU time over 1h 31min 45.321s wall clock time, 99.8M memory peak.
+Jul 17 11:44:32 Cozy discord.desktop[3821]: 11:44:32.767 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:44:32 Cozy discord.desktop[3821]: 11:44:32.768 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:44:32 Cozy discord.desktop[3821]: 11:44:32.769 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:44:32 Cozy discord.desktop[3821]: 11:44:32.769 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 11:44:32 Cozy discord.desktop[3821]: 11:44:32.770 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 14:05:36 Cozy discord.desktop[3821]: 14:05:36.968 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:05:36 Cozy discord.desktop[3821]: 14:05:36.968 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:05:36 Cozy discord.desktop[3821]: 14:05:36.968 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:05:36 Cozy discord.desktop[3821]: 14:05:36.968 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:05:36 Cozy discord.desktop[3821]: 14:05:36.969 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:05:38 Cozy systemd[2449]: Starting Ghostty...
+Jul 17 14:05:38 Cozy ghostty[35092]: info: ghostty version=1.3.1
+Jul 17 14:05:38 Cozy ghostty[35092]: info: ghostty build optimize=ReleaseFast
+Jul 17 14:05:38 Cozy ghostty[35092]: info: runtime=.gtk
+Jul 17 14:05:38 Cozy ghostty[35092]: info: font_backend=.fontconfig_freetype
+Jul 17 14:05:38 Cozy ghostty[35092]: info: dependency harfbuzz=13.2.1
+Jul 17 14:05:38 Cozy ghostty[35092]: info: dependency fontconfig=21801
+Jul 17 14:05:38 Cozy ghostty[35092]: info: renderer=renderer.generic.Renderer(renderer.OpenGL)
+Jul 17 14:05:38 Cozy ghostty[35092]: info: libxev default backend=io_uring
+Jul 17 14:05:38 Cozy ghostty[35092]: info(os_locale): setlocale from env result=en_AU.UTF-8
+Jul 17 14:05:38 Cozy ghostty[35092]: info(gtk): GTK version build=4.22.4 runtime=4.22.4
+Jul 17 14:05:38 Cozy ghostty[35092]: info(gtk): libadwaita version build=1.9.1 runtime=1.9.1
+Jul 17 14:05:38 Cozy ghostty[35092]: info: reading configuration file path=/home/pynezz/.config/ghostty/config
+Jul 17 14:05:38 Cozy ghostty[35092]: warning(gtk_ghostty_application): setting GDK_DEBUG=
+Jul 17 14:05:38 Cozy ghostty[35092]: warning(gtk_ghostty_application): setting GDK_DISABLE=gles-api,vulkan
+Jul 17 14:05:38 Cozy ghostty[35092]: warning(glib): WARNING: Adwaita: The resource style-dark.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 14:05:38 Cozy ghostty[35092]: warning(glib): WARNING: Adwaita: The resource style-hc.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 14:05:38 Cozy ghostty[35092]: warning(glib): WARNING: Adwaita: The resource style-hc-dark.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 14:05:38 Cozy systemd[2449]: Started Ghostty.
+Jul 17 14:05:38 Cozy ghostty[35092]: info(opengl): loaded OpenGL 4.6
+Jul 17 14:05:38 Cozy ghostty[35092]: info(font_shared_grid_set): font regular: JetBrainsMono NF Regular
+Jul 17 14:05:38 Cozy ghostty[35092]: info(font_shared_grid_set): font bold: JetBrainsMono NF Bold
+Jul 17 14:05:38 Cozy ghostty[35092]: info(font_shared_grid_set): font italic: JetBrainsMono NF Italic
+Jul 17 14:05:38 Cozy ghostty[35092]: info(font_shared_grid_set): font bold_italic: JetBrainsMono NF Bold Italic
+Jul 17 14:05:38 Cozy ghostty[35092]: info(io_exec): found Ghostty resources dir: /nix/store/znqms41g7lgxzxmgcvah7jvv5kcc51v0-ghostty-1.3.1/share/ghostty
+Jul 17 14:05:38 Cozy ghostty[35092]: info(io_exec): shell integration automatically injected shell=.fish
+Jul 17 14:05:38 Cozy ghostty[35092]: warning(gtk_ghostty_application): unimplemented action=.cell_size
+Jul 17 14:05:38 Cozy systemd[2449]: Started app-ghostty-surface-transient-35133.scope.
+Jul 17 14:05:38 Cozy ghostty[35092]: info(io_exec): started subcommand path=/bin/sh pid=35133
+Jul 17 14:05:46 Cozy discord.desktop[3821]: 14:05:46.497 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:05:46 Cozy discord.desktop[3821]: 14:05:46.498 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:05:46 Cozy discord.desktop[3821]: 14:05:46.499 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:05:46 Cozy discord.desktop[3821]: 14:05:46.499 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:05:46 Cozy discord.desktop[3821]: 14:05:46.499 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 14:06:00 Cozy discord.desktop[3821]: 14:06:00.139 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:06:00 Cozy discord.desktop[3821]: 14:06:00.139 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:06:00 Cozy discord.desktop[3821]: 14:06:00.139 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:06:00 Cozy discord.desktop[3821]: 14:06:00.140 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:06:00 Cozy discord.desktop[3821]: 14:06:00.140 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:06:46 Cozy ghostty[35092]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 14:06:56 Cozy ghostty[35092]: info(font_codepoint_resolver): found codepoint 0x21E1 in fallback face=DejaVu Sans Mono
+Jul 17 14:09:24 Cozy ghostty[35092]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 14:09:56 Cozy discord.desktop[3821]: 14:09:56.092 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:09:56 Cozy discord.desktop[3821]: 14:09:56.093 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:09:56 Cozy discord.desktop[3821]: 14:09:56.093 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:09:56 Cozy discord.desktop[3821]: 14:09:56.094 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:09:56 Cozy discord.desktop[3821]: 14:09:56.094 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 14:10:50 Cozy discord.desktop[3821]: 14:10:50.328 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:10:50 Cozy discord.desktop[3821]: 14:10:50.328 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:10:50 Cozy discord.desktop[3821]: 14:10:50.328 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:10:50 Cozy discord.desktop[3821]: 14:10:50.328 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:10:50 Cozy discord.desktop[3821]: 14:10:50.328 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:10:52 Cozy ghostty[35092]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 14:10:56 Cozy sudo[35802]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild build --flake .#Cozy
+Jul 17 14:10:56 Cozy sudo[35802]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 14:10:56 Cozy ghostty[35092]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 14:11:06 Cozy sudo[35802]: pam_unix(sudo:session): session closed for user root
+Jul 17 14:12:25 Cozy sudo[38069]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild switch --flake .#Cozy
+Jul 17 14:12:25 Cozy sudo[38069]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 14:12:28 Cozy systemd[2449]: Reexecution requested from client PID 38353 ('switch-to-confi')...
+Jul 17 14:12:28 Cozy systemd[2449]: Reexecuting.
+--
+Jul 17 14:12:28 Cozy hm-activate-pynezz[38370]: Activating installPackages
+Jul 17 14:12:28 Cozy hm-activate-pynezz[38370]: Activating linkGeneration
+Jul 17 14:12:28 Cozy hm-activate-pynezz[38370]: Cleaning up orphan links from /home/pynezz
+Jul 17 14:12:28 Cozy hm-activate-pynezz[38370]: Creating home file links in /home/pynezz
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Noticed file-system modification, trigger reload.
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/etc/profiles/per-user/pynezz/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/run/current-system/sw/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/yq7y1panam1z8xby7p28asd8d9id3z96-colord-1.4.8/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'ca.desrt.dconf' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/ca.desrt.dconf.service'
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-renderer' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.intel.dleyna-renderer.service'
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-server' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.intel.dleyna-server.service'
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.a11y.Bus' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.a11y.Bus.service'
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.bluez.obex' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.bluez.obex.service'
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.FileManager1' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.FileManager1.service'
+Jul 17 14:12:28 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.IBus' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.IBus.service'
+--
+Jul 17 14:15:50 Cozy discord.desktop[3821]: 14:15:50.437 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:15:50 Cozy discord.desktop[3821]: 14:15:50.438 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:15:50 Cozy discord.desktop[3821]: 14:15:50.438 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:15:50 Cozy discord.desktop[3821]: 14:15:50.439 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:15:50 Cozy discord.desktop[3821]: 14:15:50.439 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:18:19 Cozy ghostty[35092]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 14:18:20 Cozy ghostty[35092]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 14:18:20 Cozy ghostty[35092]: warning(gtk_ghostty_surface): failed to activate the on-screen keyboard
+Jul 17 14:18:44 Cozy ghostty[35092]: info(io_exec): pty fd closed, read thread exiting
+Jul 17 14:18:44 Cozy systemd[2449]: app-ghostty-surface-transient-35133.scope: Consumed 40.912s CPU time over 13min 5.528s wall clock time, 1.3G memory peak.
+Jul 17 14:18:44 Cozy ghostty[35092]: info(surface): surface closed addr=5a2b6210c750
+Jul 17 14:18:44 Cozy systemd[2449]: app-com.mitchellh.ghostty.service: Consumed 10.185s CPU time over 13min 6.000s wall clock time, 68.5M memory peak.
+Jul 17 14:18:46 Cozy systemd[2449]: Starting Ghostty...
+Jul 17 14:18:46 Cozy ghostty[39430]: info: ghostty version=1.3.1
+Jul 17 14:18:46 Cozy ghostty[39430]: info: ghostty build optimize=ReleaseFast
+Jul 17 14:18:46 Cozy ghostty[39430]: info: runtime=.gtk
+Jul 17 14:18:46 Cozy ghostty[39430]: info: font_backend=.fontconfig_freetype
+Jul 17 14:18:46 Cozy ghostty[39430]: info: dependency harfbuzz=13.2.1
+Jul 17 14:18:46 Cozy ghostty[39430]: info: dependency fontconfig=21801
+Jul 17 14:18:46 Cozy ghostty[39430]: info: renderer=renderer.generic.Renderer(renderer.OpenGL)
+Jul 17 14:18:46 Cozy ghostty[39430]: info: libxev default backend=io_uring
+Jul 17 14:18:46 Cozy ghostty[39430]: info(os_locale): setlocale from env result=en_AU.UTF-8
+Jul 17 14:18:46 Cozy ghostty[39430]: info(gtk): GTK version build=4.22.4 runtime=4.22.4
+Jul 17 14:18:46 Cozy ghostty[39430]: info(gtk): libadwaita version build=1.9.1 runtime=1.9.1
+Jul 17 14:18:46 Cozy ghostty[39430]: info: reading configuration file path=/home/pynezz/.config/ghostty/config
+Jul 17 14:18:46 Cozy ghostty[39430]: warning(gtk_ghostty_application): setting GDK_DEBUG=
+Jul 17 14:18:46 Cozy ghostty[39430]: warning(gtk_ghostty_application): setting GDK_DISABLE=gles-api,vulkan
+Jul 17 14:18:46 Cozy ghostty[39430]: warning(glib): WARNING: Adwaita: The resource style-dark.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 14:18:46 Cozy ghostty[39430]: warning(glib): WARNING: Adwaita: The resource style-hc.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 14:18:46 Cozy ghostty[39430]: warning(glib): WARNING: Adwaita: The resource style-hc-dark.css is deprecated and shouldn't be used anymore. Use style.css with media queries instead.
+Jul 17 14:18:46 Cozy systemd[2449]: Started Ghostty.
+Jul 17 14:18:47 Cozy ghostty[39430]: info(opengl): loaded OpenGL 4.6
+Jul 17 14:18:47 Cozy ghostty[39430]: info(font_shared_grid_set): font regular: JetBrainsMono NF Regular
+Jul 17 14:18:47 Cozy ghostty[39430]: info(font_shared_grid_set): font bold: JetBrainsMono NF Bold
+Jul 17 14:18:47 Cozy ghostty[39430]: info(font_shared_grid_set): font italic: JetBrainsMono NF Italic
+Jul 17 14:18:47 Cozy ghostty[39430]: info(font_shared_grid_set): font bold_italic: JetBrainsMono NF Bold Italic
+Jul 17 14:18:47 Cozy ghostty[39430]: info(io_exec): found Ghostty resources dir: /nix/store/znqms41g7lgxzxmgcvah7jvv5kcc51v0-ghostty-1.3.1/share/ghostty
+Jul 17 14:18:47 Cozy ghostty[39430]: info(io_exec): shell integration automatically injected shell=.fish
+Jul 17 14:18:47 Cozy ghostty[39430]: warning(gtk_ghostty_application): unimplemented action=.cell_size
+Jul 17 14:18:47 Cozy systemd[2449]: Started app-ghostty-surface-transient-39467.scope.
+Jul 17 14:18:47 Cozy ghostty[39430]: info(io_exec): started subcommand path=/bin/sh pid=39467
+Jul 17 14:20:46 Cozy discord.desktop[3821]: 14:20:46.400 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:20:46 Cozy discord.desktop[3821]: 14:20:46.401 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:20:46 Cozy discord.desktop[3821]: 14:20:46.401 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:20:46 Cozy discord.desktop[3821]: 14:20:46.402 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:20:46 Cozy discord.desktop[3821]: 14:20:46.402 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 14:20:50 Cozy discord.desktop[3821]: 14:20:50.314 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:20:50 Cozy discord.desktop[3821]: 14:20:50.315 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:20:50 Cozy discord.desktop[3821]: 14:20:50.315 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:20:50 Cozy discord.desktop[3821]: 14:20:50.316 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:20:50 Cozy discord.desktop[3821]: 14:20:50.316 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:21:04 Cozy ghostty[39430]: info(font_codepoint_resolver): found codepoint 0x21E1 in fallback face=DejaVu Sans Mono
+Jul 17 14:25:10 Cozy discord.desktop[3821]: 14:25:10.019 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:25:10 Cozy discord.desktop[3821]: 14:25:10.020 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:25:10 Cozy discord.desktop[3821]: 14:25:10.020 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:25:10 Cozy discord.desktop[3821]: 14:25:10.020 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:25:10 Cozy discord.desktop[3821]: 14:25:10.020 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+--
+Jul 17 14:25:50 Cozy discord.desktop[3821]: 14:25:50.315 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:25:50 Cozy discord.desktop[3821]: 14:25:50.316 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:25:50 Cozy discord.desktop[3821]: 14:25:50.316 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:25:50 Cozy discord.desktop[3821]: 14:25:50.316 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:25:50 Cozy discord.desktop[3821]: 14:25:50.316 › The resource https://discordapp.com/assets/cb2006dbced0e246.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:26:34 Cozy ghostty[39430]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 14:26:38 Cozy sudo[40074]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild build --flake .#Cozy
+Jul 17 14:26:38 Cozy sudo[40074]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 14:26:38 Cozy ghostty[39430]: warning(gtk_ghostty_application): unimplemented action=.secure_input
+Jul 17 14:26:48 Cozy sudo[40074]: pam_unix(sudo:session): session closed for user root
+Jul 17 14:27:07 Cozy sudo[41849]:   pynezz : TTY=pts/0 ; PWD=/home/pynezz/cozy-config ; USER=root ; COMMAND=/run/current-system/sw/bin/nixos-rebuild switch --flake .#Cozy
+Jul 17 14:27:07 Cozy sudo[41849]: pam_unix(sudo:session): session opened for user root(uid=0) by pynezz(uid=1000)
+Jul 17 14:27:09 Cozy systemd[2449]: Reexecution requested from client PID 42132 ('switch-to-confi')...
+Jul 17 14:27:09 Cozy systemd[2449]: Reexecuting.
+--
+Jul 17 14:27:09 Cozy hm-activate-pynezz[42150]: Activating installPackages
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42150]: Activating linkGeneration
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42150]: Cleaning up orphan links from /home/pynezz
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42150]: Creating home file links in /home/pynezz
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Noticed file-system modification, trigger reload.
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/etc/profiles/per-user/pynezz/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/run/current-system/sw/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/yq7y1panam1z8xby7p28asd8d9id3z96-colord-1.4.8/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'ca.desrt.dconf' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/ca.desrt.dconf.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-renderer' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.intel.dleyna-renderer.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-server' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.intel.dleyna-server.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.a11y.Bus' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.a11y.Bus.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.bluez.obex' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.bluez.obex.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.FileManager1' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.FileManager1.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.IBus' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.IBus.service'
+--
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.secrets' in service file '/nix/store/ynvk2lvw7lxjvhr1a4nr9lxd4q3h2xn7-gnome-keyring-50.0/share/dbus-1/services/org.freedesktop.secrets.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.gnome.keyring' in service file '/nix/store/ynvk2lvw7lxjvhr1a4nr9lxd4q3h2xn7-gnome-keyring-50.0/share/dbus-1/services/org.gnome.keyring.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.IBus' in service file '/nix/store/84l23bvbf0ig3z100nmdvs0jfari327r-ibus-with-plugins-1.5.34/share/dbus-1/services/org.freedesktop.IBus.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.portal.IBus' in service file '/nix/store/84l23bvbf0ig3z100nmdvs0jfari327r-ibus-with-plugins-1.5.34/share/dbus-1/services/org.freedesktop.portal.IBus.service'
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42150]: Activating onFilesChange
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42385]: /nix/store/vf5jzcxq5w2l6cr2wl4wbsg61a6xgmxm-ghostty-config:12:window-save-state: invalid value "true", valid values are: default, never, always
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42465]: Starting Home Manager activation
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42465]: Activating checkFilesChanged
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42465]: Activating checkLinkTargets
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42465]: Activating writeBoundary
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42465]: Activating installPackages
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42465]: Activating linkGeneration
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42465]: Cleaning up orphan links from /home/pynezz
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42465]: Creating home file links in /home/pynezz
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Noticed file-system modification, trigger reload.
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/etc/profiles/per-user/pynezz/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/run/current-system/sw/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/yq7y1panam1z8xby7p28asd8d9id3z96-colord-1.4.8/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'ca.desrt.dconf' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/ca.desrt.dconf.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-renderer' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.intel.dleyna-renderer.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.intel.dleyna-server' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.intel.dleyna-server.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'com.mitchellh.ghostty' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/com.mitchellh.ghostty.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.a11y.Bus' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.a11y.Bus.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.bluez.obex' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.bluez.obex.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.ColorHelper' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.ColorHelper.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.FileManager1' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.FileManager1.service'
+Jul 17 14:27:10 Cozy dbus-broker-launch[2462]: Ignoring duplicate name 'org.freedesktop.IBus' in service file '/nix/store/l6mzpxq6hbfxlalk3gs75a51mgcnmish-system-path/share/dbus-1/services/org.freedesktop.IBus.service'
+--
+Jul 17 14:27:10 Cozy systemd[2449]: Reloading...
+Jul 17 14:27:10 Cozy systemd-xdg-autostart-generator[42716]: Exec binary '/nix/store/8dm0isas80vwmb031p5r7lg2967pfpa3-protonmail-bridge-gui-3.21.2/lib/bridge-gui' does not exist: No such file or directory
+Jul 17 14:27:10 Cozy systemd-xdg-autostart-generator[42716]: /home/pynezz/.config/autostart/ProtonMailBridge.desktop: not generating unit, executable specified in Exec= does not exist.
+Jul 17 14:27:10 Cozy systemd[2449]: Reloading finished in 172 ms.
+Jul 17 14:27:10 Cozy systemd[2449]: Failed to adjust io pressure threshold, ignoring: Device or resource busy
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42709]: Reloading units: app-com.mitchellh.ghostty.service
+Jul 17 14:27:10 Cozy systemd[2449]: Reloading Ghostty...
+Jul 17 14:27:10 Cozy ghostty[39430]: info(gtk_ghostty_application): received SIGUSR2, reloading configuration
+Jul 17 14:27:10 Cozy ghostty[39430]: info: reading configuration file path=/home/pynezz/.config/ghostty/config
+Jul 17 14:27:10 Cozy ghostty[39430]: warning(gtk_ghostty_application): unimplemented action=.cell_size
+Jul 17 14:27:10 Cozy systemd[2449]: Reloaded Ghostty.
+Jul 17 14:27:10 Cozy hm-activate-pynezz[42465]: Activating vscodeProfiles
+Jul 17 14:27:11 Cozy sudo[41849]: pam_unix(sudo:session): session closed for user root
+Jul 17 14:27:13 Cozy ghostty[39430]: info: reading configuration file path=/home/pynezz/.config/ghostty/config
+Jul 17 14:27:13 Cozy ghostty[39430]: warning(gtk_ghostty_application): unimplemented action=.cell_size
+Jul 17 14:27:17 Cozy ghostty[39430]: info: reading configuration file path=/home/pynezz/.config/ghostty/config
+Jul 17 14:27:17 Cozy ghostty[39430]: warning(gtk_ghostty_application): unimplemented action=.cell_size
+Jul 17 14:27:18 Cozy ghostty[39430]: info: reading configuration file path=/home/pynezz/.config/ghostty/config
+Jul 17 14:27:18 Cozy ghostty[39430]: warning(gtk_ghostty_application): unimplemented action=.cell_size
+Jul 17 14:28:17 Cozy discord.desktop[3821]: 14:28:17.477 › The resource https://discordapp.com/assets/189422196a4f8b53.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:28:17 Cozy discord.desktop[3821]: 14:28:17.478 › The resource https://discordapp.com/assets/7a6a566c2e88a35d.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:28:17 Cozy discord.desktop[3821]: 14:28:17.478 › The resource https://discordapp.com/assets/dd24010f3cf7def7.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:28:17 Cozy discord.desktop[3821]: 14:28:17.478 › The resource https://discordapp.com/assets/e52f0cba712e2fb4.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Jul 17 14:28:17 Cozy discord.desktop[3821]: 14:28:17.479 › The resource https://discordapp.com/assets/ce3b8055f5114434.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
