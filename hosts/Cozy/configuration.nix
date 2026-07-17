@@ -11,6 +11,9 @@
     ../../modules/core
     ../../modules/desktop
     ../../modules/apps
+    ../../modules/development
+    ../../modules/security
+    ../../modules/services
   ];
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
