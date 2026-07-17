@@ -1,13 +1,11 @@
 _:
 
 {
-  programs.fish = {
-    enable = true;
+  imports = [
+    ./fish/abbreviations.nix
+    ./fish/functions.nix
+    ./fish/interactive.nix
+  ];
 
-    shellAliases = {
-      ll = "ls -lah";
-      la = "ls -A";
-      rebuild = "just rebuild";
-    };
-  };
+  programs.fish.enable = true;
 }
