@@ -210,3 +210,23 @@ Polish Starship configuration
 ### Next
 
 Ghostty polish
+
+## Session 9 — Ghostty v1
+
+### Completed
+
+- Polished Ghostty configuration
+- Added window state persistence
+- Increased scrollback history
+- Improved configuration organization
+- Replaced deprecated `nixfmt-rfc-style` with `nixfmt`
+
+### Notes
+
+- Identified an unsupported Ghostty configuration option and removed it.
+- Verified Home Manager integration remains healthy.
+- Configuration now builds and switches cleanly.
+
+### Result
+
+Ghostty v1 complete.

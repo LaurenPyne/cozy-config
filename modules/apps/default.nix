@@ -5,7 +5,7 @@ _:
     ./browsers.nix
     ./communication.nix
     ./creative.nix
-    ./deluge.nix
+    ./torrent.nix
     ./gaming.nix
     ./media.nix
     ./office.nix

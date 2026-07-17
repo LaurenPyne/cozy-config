@@ -1,4 +1,16 @@
+# Nix build outputs
 result
 result-*
-*.swp
-.DS_Store
+
+# Backups
+*.bak
+
+# Temporary files
+error.txt
+
+# Direnv
+.direnv/
+.envrc.local
+
+# Editor
+.vscode/settings.json
