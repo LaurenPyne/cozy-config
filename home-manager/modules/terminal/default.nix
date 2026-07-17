@@ -7,5 +7,6 @@ _:
     ./starship.nix
     ./zoxide.nix
     ./eza.nix
+    ./tools.nix
   ];
 }
