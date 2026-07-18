@@ -6,5 +6,6 @@ _:
     ./editors.nix
     ./containers.nix
     ./virtualization.nix
+    ./tools.nix
   ];
 }

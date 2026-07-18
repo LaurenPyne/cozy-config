@@ -9,5 +9,6 @@ _:
     ./gaming.nix
     ./media.nix
     ./office.nix
+    ./archive.nix
   ];
 }

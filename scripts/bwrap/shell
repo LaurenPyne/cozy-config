@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+set -eu
+
+PROJECT_DIR="${1:-$PWD}"
+
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+
+. "$SCRIPT_DIR/lib/args.sh"
+. "$SCRIPT_DIR/lib/filesystem.sh"
+. "$SCRIPT_DIR/lib/environment.sh"
+. "$SCRIPT_DIR/lib/profiles.sh"
+. "$SCRIPT_DIR/lib/launch.sh"
+. "$SCRIPT_DIR/lib/gui.sh"
+
+shell_profile
+enable_gui
+
+launch /run/current-system/sw/bin/bash
