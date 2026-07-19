@@ -105,13 +105,17 @@ openclaw_profile() {
     base_profile
     gui_profile
 
-    bind_rw "$PROJECT_DIR" /workspace
+    # OpenClaw workspace
+    bind_rw "$HOME/Workspace/openclaw" /workspace
     chdir /workspace
 
-    #
-    # Future:
-    #
-    # bind_rw "$HOME/.config/OpenClaw" "$HOME/.config/OpenClaw"
-    # bind_rw "$HOME/Models" "$HOME/Models"
-    # bind_rw "$HOME/.ssh" "$HOME/.ssh"
+    # Application state
+    mkdir_p "$HOME/.config/openclaw"
+    mkdir_p "$HOME/.cache/openclaw"
+    mkdir_p "$HOME/.local/share/openclaw"
+
+    bind_rw "$HOME/.config/openclaw" "$HOME/.config/openclaw"
+    bind_rw "$HOME/.cache/openclaw" "$HOME/.cache/openclaw"
+    bind_rw "$HOME/.local/share/openclaw" "$HOME/.local/share/openclaw"
 }
+
