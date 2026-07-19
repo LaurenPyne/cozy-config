@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+set -eu
+
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+LIB_DIR="$SCRIPT_DIR/lib"
+
+. "$LIB_DIR/bootstrap.sh"
+
+shell_profile
+
+enable_wayland
+enable_x11
+enable_dbus
+
+launch zenity --info --text="Hello from Cozy!"

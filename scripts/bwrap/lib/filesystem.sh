@@ -36,3 +36,9 @@ mkdir_p() {
     add_arg --dir
     add_arg "$1"
 }
+
+symlink() {
+    add_arg --symlink
+    add_arg "$1"
+    add_arg "$2"
+}

@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+
+echo "=== Environment ==="
+echo "HOME=$HOME"
+echo "DISPLAY=$DISPLAY"
+echo "WAYLAND_DISPLAY=$WAYLAND_DISPLAY"
+echo "XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR"
+echo
+
+echo "=== Runtime ==="
+ls "$XDG_RUNTIME_DIR"
+
+echo
+echo "=== Wayland ==="
+ls "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY"
+
+echo
+echo "=== DBus ==="
+ls "$XDG_RUNTIME_DIR/bus"
+
+echo
+echo "=== Fonts ==="
+fc-match sans
+
+echo
+echo "=== Programs ==="
+which code || true
+which librewolf || true
+which fish || true
+
+echo
+echo "=== Workspace ==="
+pwd
+touch .doctor-test
+rm .doctor-test
+echo "Workspace writable ✓"
