@@ -20,8 +20,6 @@ _:
       window-padding-x = 10;
       window-padding-y = 10;
 
-      window-save-state = true;
-
       # Scrollback
       scrollback-limit = 100000;
 

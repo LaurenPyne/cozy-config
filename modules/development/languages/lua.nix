@@ -2,8 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    vlc
-    mov-cli
-    high-tide
+    lua
+    luarocks
   ];
 }

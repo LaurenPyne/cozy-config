@@ -6,7 +6,7 @@ _:
     ./direnv.nix
     ./git.nix
     ./pre-commit.nix
-    ./vscode.nix
+    ./vscodium.nix
     ./languages
   ];
 }

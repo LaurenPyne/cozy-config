@@ -5,7 +5,6 @@
     # ===== Editors =====
     neovim
     vscode
-
     # ===== Editor Plugins =====
     vimPlugins.lazy-nvim
 

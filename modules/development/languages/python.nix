@@ -2,8 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
-    vlc
-    mov-cli
-    high-tide
+    # Python
+    python3
+    python314Packages.tkinter
+    uv
   ];
 }

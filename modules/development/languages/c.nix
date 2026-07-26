@@ -2,8 +2,11 @@
 
 {
   environment.systemPackages = with pkgs; [
-    vlc
-    mov-cli
-    high-tide
+    gcc
+    gnumake
+    pkg-config
+
+    cmake
+    ninja
   ];
 }
