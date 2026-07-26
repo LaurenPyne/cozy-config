@@ -17,8 +17,15 @@
         # ---------------------------------------------------------------------
 
         "workbench.colorTheme" = "Everforest Pro Dark Vibrant";
+        "workbench.iconTheme" = "material-icon-theme";
+
         "workbench.startupEditor" = "none";
         "workbench.editor.enablePreview" = false;
+        "workbench.layoutControl.enabled" = false;
+
+        "window.commandCenter" = false;
+
+        "breadcrumbs.enabled" = true;
 
         # ---------------------------------------------------------------------
         # Editor
@@ -26,6 +33,8 @@
 
         "editor.fontFamily" = "JetBrainsMono Nerd Font";
         "editor.fontLigatures" = true;
+        "editor.fontSize" = 14;
+        "editor.lineHeight" = 24;
 
         "editor.formatOnSave" = true;
         "editor.minimap.enabled" = false;
@@ -34,7 +43,12 @@
         "editor.inlineSuggest.enabled" = true;
         "editor.cursorSmoothCaretAnimation" = "on";
         "editor.smoothScrolling" = true;
+
         "editor.tabSize" = 4;
+
+        "editor.bracketPairColorization.enabled" = true;
+        "editor.guides.bracketPairs" = true;
+        "editor.guides.highlightActiveBracketPair" = true;
 
         "editor.rulers" = [
           80
@@ -69,6 +83,7 @@
         # ---------------------------------------------------------------------
 
         "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
+
         "terminal.integrated.initialHint" = false;
         "terminal.integrated.scrollback" = 100000;
 
@@ -101,6 +116,7 @@
 
         "rust-analyzer.check.command" = "clippy";
         "rust-analyzer.cargo.features" = "all";
+
         "rust-analyzer.inlayHints.typeHints.enable" = true;
         "rust-analyzer.inlayHints.parameterHints.enable" = true;
 
@@ -149,6 +165,12 @@
 
       extensions = with pkgs.vscode-extensions; [
         # -----------------------------------------------------------------
+        # Theme
+        # -----------------------------------------------------------------
+
+        pkief.material-icon-theme
+
+        # -----------------------------------------------------------------
         # Nix
         # -----------------------------------------------------------------
 
@@ -160,7 +182,6 @@
 
         eamodio.gitlens
         github.vscode-pull-request-github
-        mhutchie.git-graph
 
         # -----------------------------------------------------------------
         # Remote
@@ -175,8 +196,6 @@
 
         mkhl.direnv
         ritwickdey.liveserver
-        tamasfe.even-better-toml
-        usernamehw.errorlens
 
         # -----------------------------------------------------------------
         # Fish
